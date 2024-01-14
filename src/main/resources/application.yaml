@@ -1,0 +1,59 @@
+server:
+  port: 8160   #端口号
+spring:
+  application:
+    name: service-User
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/culture
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      password:
+      jedis:
+        pool:
+          max-active: 8
+          max-wait: -1
+          max-idle: 8
+          min-idle: 0
+      timeout: 0
+  mail:
+    default-encoding: utf-8
+    host: smtp.qq.com
+    protocol: smtp
+    username: 123123123
+    password: 123123123123
+    port: 587
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.timeout: 25000
+      mail.smtp.port: 465
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.fallback: false
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+mybatis-plus:
+  # 配置Mybatis数据返回类型别名（默认别名为类名）
+  type-aliases-package: com.yunnuo.server.pojo
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto
+#配置控制台打印日志Debug
+logging:
+  level:
+    com.jd.mapper: debug
